@@ -7,6 +7,8 @@ defmodule Lifinance.Accounts do
   alias Lifinance.Repo
 
   alias Lifinance.Accounts.User
+  alias Lifinance.Receipts.Expense
+  alias Lifinance.Receipts.Revenue
 
   @doc """
   Returns the list of users.
@@ -36,6 +38,23 @@ defmodule Lifinance.Accounts do
 
   """
   def get_user!(id), do: Repo.get!(User, id)
+  def get_user_revenues(id) do
+    try do
+      result =  Repo.get_by!(Revenue, user_id: id)
+      {:ok, result}
+    rescue
+      Ecto.NoResultsError -> "no content"
+    end
+  end
+
+  def get_user_expenses(id) do
+    try do
+      result =  Repo.get_by!(Expense, user_id: id)
+      {:ok, result}
+    rescue
+      Ecto.NoResultsError -> "no content"
+    end
+  end
 
   @doc """
   Creates a user.

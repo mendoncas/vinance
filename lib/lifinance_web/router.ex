@@ -25,6 +25,21 @@ defmodule LifinanceWeb.Router do
 
     live "/users/:id", UserLive.Show, :show
     live "/users/:id/show/edit", UserLive.Show, :edit
+
+    live "/expenses", ExpenseLive.Index, :index
+    live "/expenses/new", ExpenseLive.Index, :new
+    live "/expenses/:id/edit", ExpenseLive.Index, :edit
+
+    live "/expenses/:id", ExpenseLive.Show, :show
+    live "/expenses/:id/show/edit", ExpenseLive.Show, :edit
+
+
+    live "/revenues", RevenueLive.Index, :index
+    live "/revenues/new", RevenueLive.Index, :new
+    live "/revenues/:id/edit", RevenueLive.Index, :edit
+
+    live "/revenues/:id", RevenueLive.Show, :show
+    live "/revenues/:id/show/edit", RevenueLive.Show, :edit
   end
 
   # Other scopes may use custom stacks.

@@ -14,6 +14,10 @@
 <% end %>
 
 <ul>
+  <li>
+    <strong>ID:</strong>
+    <%= @user.id %>
+  </li>
 
   <li>
     <strong>Name:</strong>
@@ -23,6 +27,16 @@
   <li>
     <strong>Password:</strong>
     <%= @user.password %>
+  </li>
+
+  <li>
+    <strong>Revenues:</strong>
+    <%= inspect assigns[:revenues] || "nenhuma"%>
+  </li>
+
+  <li>
+    <strong>Expenses:</strong>
+    <%= inspect assigns[:expenses] || "nenhuma"%>
   </li>
 
 </ul>

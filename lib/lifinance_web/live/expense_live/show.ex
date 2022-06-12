@@ -1,7 +1,7 @@
-defmodule LifinanceWeb.UserLive.Show do
+defmodule LifinanceWeb.ExpenseLive.Show do
   use LifinanceWeb, :live_view
 
-  alias Lifinance.Accounts
+  alias Lifinance.Receipts
 
   @impl true
   def mount(_params, _session, socket) do
@@ -13,11 +13,9 @@ defmodule LifinanceWeb.UserLive.Show do
     {:noreply,
      socket
      |> assign(:page_title, page_title(socket.assigns.live_action))
-     |> assign(:user, Accounts.get_user!(id))
-     |> assign(:revenues, Accounts.get_user_revenues(id))
-  }
+     |> assign(:expense, Receipts.get_expense!(id))}
   end
 
-  defp page_title(:show), do: "Show User"
-  defp page_title(:edit), do: "Edit User"
+  defp page_title(:show), do: "Show Expense"
+  defp page_title(:edit), do: "Edit Expense"
 end

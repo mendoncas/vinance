@@ -5,6 +5,8 @@ defmodule Lifinance.Accounts.User do
   schema "users" do
     field :name, :string
     field :password, :string
+    has_many :revenues, Lifinance.Receipts.Revenue
+    has_many :expenses, Lifinance.Receipts.Expense
 
     timestamps()
   end
