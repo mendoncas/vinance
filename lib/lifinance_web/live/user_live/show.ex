@@ -15,6 +15,7 @@ defmodule LifinanceWeb.UserLive.Show do
      |> assign(:page_title, page_title(socket.assigns.live_action))
      |> assign(:user, Accounts.get_user!(id))
      |> assign(:revenues, Accounts.get_user_revenues(id))
+     |> assign(:expenses, Accounts.get_user_expenses(id))
   }
   end
 
