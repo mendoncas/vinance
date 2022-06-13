@@ -1,0 +1,42 @@
+<h1>Show Revenue</h1>
+
+<%= if @live_action in [:edit] do %>
+  <.modal return_to={Routes.revenue_show_path(@socket, :show, @revenue)}>
+    <.live_component
+      module={LifinanceWeb.RevenueLive.FormComponent}
+      id={@revenue.id}
+      title={@page_title}
+      action={@live_action}
+      revenue={@revenue}
+      return_to={Routes.revenue_show_path(@socket, :show, @revenue)}
+    />
+  </.modal>
+<% end %>
+
+<ul>
+
+  <li>
+    <strong>Value:</strong>
+    <%= @revenue.value %>
+  </li>
+
+  <li>
+    <strong>Date:</strong>
+    <%= @revenue.date %>
+  </li>
+
+  <li>
+    <strong>Username:</strong>
+    <%= @revenue.username %>
+  </li>
+
+  <li>
+    <strong>User ID:</strong>
+    <%= @revenue.user_id %>
+  </li>
+
+
+</ul>
+
+<span><%= live_patch "Edit", to: Routes.revenue_show_path(@socket, :edit, @revenue), class: "button" %></span> |
+<span><%= live_redirect "Back", to: Routes.revenue_index_path(@socket, :index) %></span>
