@@ -1,0 +1,9 @@
+version: '3'
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: ecto
+      POSTGRES_PASSWORD: ecto
+    ports:
+      - "5432:5432"
